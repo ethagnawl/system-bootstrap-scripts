@@ -1,9 +1,10 @@
 module Utilities
+  DRYRUN = ENV['DRYRUN'] ||= false
 
   LINEBREAK = '---------------------------------------------------------------------------------'
 
   def self.dryrun?
-    true
+    Utilities::DRYRUN
   end
 
   def self.log(task)

@@ -2,4 +2,4 @@
 
 sudo apt-get install ruby
 sudo apt-get install rake
-rake
+rake $1
