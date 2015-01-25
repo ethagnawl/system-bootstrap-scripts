@@ -47,9 +47,13 @@ task :git do
 end
 
 task :vundle do
-  vundle = "vim +PluginInstall +qall"
-  Utilities::log vundle
-  Utilities::execute vundle
+  download_vundle = "git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim"
+  Utilities::log download_vundle
+  Utilities::execute download_vundle
+
+  install_vundle = "vim +PluginInstall +qall"
+  Utilities::log install_vundle
+  Utilities::execute install_vundle
 end
 
 task :pathogen do
