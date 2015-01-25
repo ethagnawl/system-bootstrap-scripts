@@ -16,7 +16,7 @@ module Utilities
   end
 
   def self.backticks(command)
-    `command` unless self.dryrun?
+    `#{command}` unless self.dryrun?
   end
 
 end
