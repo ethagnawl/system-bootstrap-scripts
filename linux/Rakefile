@@ -1,0 +1,211 @@
+module Utilities
+
+  LINEBREAK = '---------------------------------------------------------------------------------'
+
+  def self.dryrun?
+    true
+  end
+
+  def self.log(task)
+    puts "", "#{task}", Utilities::LINEBREAK
+  end
+
+  def self.execute(command)
+    system command unless self.dryrun?
+  end
+
+  def self.backticks(command)
+    `command` unless self.dryrun?
+  end
+
+end
+
+task :upgrade do
+  upgrade = "sudo apt-get upgrade"
+  Utilities::log upgrade
+  Utilities::execute upgrade
+end
+
+task :update do
+  update = "sudo apt-get update"
+  Utilities::log update
+  Utilities::execute update
+end
+
+task :ssh do
+  keygen = "ssh-keygen -t rsa"
+  Utilities::log keygen
+  Utilities::execute keygen
+end
+
+task system: [:update, :upgrade, :ssh]
+
+task :git do
+  git = "sudo apt-get install git"
+  Utilities::log git
+  Utilities::execute git
+end
+
+task :vundle do
+  vundle = "vim +PluginInstall +qall"
+  Utilities::log vundle
+  Utilities::execute vundle
+end
+
+task :pathogen do
+  download_and_install_pathogen = "mkdir -p ~/.vim/autoload ~/.vim/bundle && curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim"
+  Utilities::log download_and_install_pathogen
+  Utilities::execute download_and_install_pathogen
+end
+
+task :_vim do
+  vim = "sudo apt-get install vim"
+  Utilities::log vim
+  Utilities::execute vim
+end
+
+task vim: [:_vim, :pathogen, :vundle]
+
+task :tmux do
+  tmux = "sudo apt-get install tmux"
+  Utilities::log tmux
+  Utilities::execute tmux
+end
+
+task :sublime_text do
+  add_ppa = "sudo add-apt-repository ppa:webupd8team/sublime-text-3"
+  Utilities::log add_ppa
+  Utilities::execute add_ppa
+
+  update = "sudo apt-get update"
+  Utilities::log update
+  Utilities::execute update
+
+  install = "sudo apt-get install sublime-text-installer"
+  Utilities::log install
+  Utilities::execute install
+end
+
+task editors: [:vim, :sublime_text]
+
+task :bundler do
+  bundler = "cd ~ && gem install bundler"
+  Utilities::log bundler
+  Utilities::execute bundler
+end
+
+task :rails do
+  rails = "cd ~ && gem install rails"
+  Utilities::log rails
+  Utilities::execute rails
+end
+
+task :pry do
+  pry = "cd ~ && gem install pry"
+  Utilities::log pry
+  Utilities::execute pry
+end
+
+task :tmuxinator do
+  tmuxinator = "cd ~ && gem install tmuxinator"
+  Utilities::log tmuxinator
+  Utilities::execute tmuxinator
+end
+
+task gems: [:bundler, :rails, :pry, :tmuxinator]
+
+task :rvm do
+  add_keys = "gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3"
+  Utilities::log add_keys
+  Utilities::execute add_keys
+
+  download_install_script = "\curl -sSL https://get.rvm.io | bash -s stable --ruby"
+  Utilities::log download_install_script
+  Utilities::execute download_install_script
+end
+
+task ruby: [:rvm, :gems]
+
+task :npm do
+  npm = "sudo apt-get install npm"
+  Utilities::log npm
+  Utilities::execute npm
+end
+
+task :_node do
+  node = "sudo apt-get install nodejs"
+  Utilities::log node
+  Utilities::execute node
+end
+
+task node: [:_node, :npm]
+
+task :jre do
+  jre = "sudo apt-get install default-jre"
+  Utilities::log jre
+  Utilities::execute jre
+end
+
+task :jdk do
+  jdk = "sudo apt-get install default-jdk"
+  Utilities::log jdk
+  Utilities::execute jdk
+end
+
+task :java_home do
+  Utilities::log "set JAVA_HOME"
+  path = Utilities::backticks `which java`
+  Utilities::execute "echo JAVA_HOME=\"#{path}\" > /etc/environment"
+end
+
+task java: [:jre, :jdk, :java_home]
+
+task :leinengen do
+  Utilities::log "download lein install script"
+  Utilities::execute "wget -O lein https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein"
+
+  Utilities::log "move lein into path"
+  Utilities::execute "mv lein ~/bin"
+
+  Utilities::log "make lein executable"
+  Utilities::execute "chmod 755 ~/bin/lein"
+
+  Utilities::log "install lein"
+  Utilities::execute "bash ~/bin/lein"
+end
+
+task clojure: [:leinengen]
+
+task :dotfiles do
+  dotfiles_path = "https://github.com/ethagnawl/dotfiles"
+  Utilities::log "clone dotfiles"
+  Utilities::execute "cd ~ && git clone #{dotfiles_path}"
+
+  Utilities::log "symlink .vimrc"
+  Utilities::execute "cd ~ && ln -s ~/dotfiles/.vimrc ."
+
+  Utilities::log "symlink .tmux.conf"
+  Utilities::execute "cd ~ && ln -s ~/dotfiles/.tmux.conf ."
+end
+
+task :haskell do
+  haskell = "sudo apt-get install ghc6 ghc6-prof ghc6-doc libghc6-library-dev"
+  Utilities::log haskell
+  Utilities::execute haskell
+end
+
+task linux: [
+              :system,
+              :ssh,
+              :git,
+              :dotfiles,
+              :editors,
+              :ruby,
+              :node,
+              :java,
+              :clojure
+            ] do |t|
+
+end
+
+task default: %w[linux]
