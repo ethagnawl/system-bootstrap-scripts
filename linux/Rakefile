@@ -82,9 +82,7 @@ task :sublime_text do
   Utilities::log add_ppa
   Utilities::execute add_ppa
 
-  update = "sudo apt-get update"
-  Utilities::log update
-  Utilities::execute update
+  Rake::Task["update"].execute
 
   install = "sudo apt-get install sublime-text-installer"
   Utilities::log install
@@ -199,6 +197,30 @@ task :haskell do
   Utilities::execute haskell
 end
 
+task :keepassx do
+  keepassx = "sudo apt-get keepassx"
+  Utilities::log keepassx
+  Utilities::execute keepassx
+end
+
+task :chrome do
+  get_key = "wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -"
+  Utilities::log get_key
+  Utilities::execute get_key
+
+  add_ppa = 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+  Utilities::log add_ppa
+  Utilities::execute add_ppa
+
+  Rake::Task["update"].execute
+
+  chrome = "sudo apt-get install google-chrome-unstable"
+  Utilities::log chrome
+  Utilities::execute chrome
+end
+
+task applications: [:keepassx, :chrome]
+
 task linux: [
               :system,
               :ssh,
@@ -208,7 +230,8 @@ task linux: [
               :ruby,
               :node,
               :java,
-              :clojure
+              :clojure,
+              :applications
             ] do |t|
 
 end
