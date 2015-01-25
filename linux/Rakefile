@@ -124,7 +124,7 @@ task :rvm do
   Utilities::log add_keys
   Utilities::execute add_keys
 
-  download_install_script = "\curl -sSL https://get.rvm.io | bash -s stable --ruby"
+  download_install_script = "curl -sSL https://get.rvm.io | bash -s stable --ruby"
   Utilities::log download_install_script
   Utilities::execute download_install_script
 end
