@@ -219,7 +219,12 @@ task :chrome do
   Utilities::execute chrome
 end
 
-task applications: [:keepassx, :chrome]
+task :dropbox do
+  Utilities::log "download and install dropbox"
+  Utilities::execute 'cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf - && ~/.dropbox-dist/dropboxd'
+end
+
+task applications: [:keepassx, :chrome, :dropbox]
 
 task linux: [
               :system,
