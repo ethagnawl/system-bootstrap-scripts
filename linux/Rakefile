@@ -1,5 +1,5 @@
 module Utilities
-  DRYRUN = ENV['DRYRUN'] ||= false
+  DRYRUN = ENV['DRYRUN'] || false
 
   LINEBREAK = '---------------------------------------------------------------------------------'
 
