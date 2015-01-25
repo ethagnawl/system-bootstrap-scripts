@@ -1,5 +1,4 @@
 #! /bin/bash
 
-sudo apt-get install ruby
-sudo apt-get install rake
+yes | sudo apt-get install ruby rake
 rake $1
