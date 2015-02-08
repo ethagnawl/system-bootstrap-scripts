@@ -39,7 +39,7 @@ task :ssh do
   Utilities::execute keygen
 end
 
-task system: [:update, :upgrade, :ssh]
+task system: [:update, :upgrade]
 
 task :git do
   git = "sudo apt-get install git"
@@ -71,10 +71,28 @@ end
 
 task vim: [:_vim, :pathogen, :vundle]
 
+task :curl do
+  curl = "sudo apt-get install curl"
+  Utilities::log curl
+  Utilities::execute curl
+end
+
+task :xsel do
+  xsel = "sudo apt-get install xsel"
+  Utilities::log xsel
+  Utilities::execute xsel
+end
+
 task :tmux do
   tmux = "sudo apt-get install tmux"
   Utilities::log tmux
   Utilities::execute tmux
+end
+
+task :tree do
+  tree = "sudo apt-get install tree"
+  Utilities::log tree
+  Utilities::execute tree
 end
 
 task :sublime_text do
@@ -189,6 +207,12 @@ task :dotfiles do
 
   Utilities::log "symlink .tmux.conf"
   Utilities::execute "cd ~ && ln -s ~/dotfiles/.tmux.conf ."
+
+  Utilities::log "symlink .gemrc"
+  Utilities::execute "cd ~ && ln -s ~/dotfiles/.gemrc ."
+
+  Utilities::log "symlink .pryrc"
+  Utilities::execute "cd ~ && ln -s ~/dotfiles/.pryrc ."
 end
 
 task :haskell do
@@ -230,6 +254,10 @@ task linux: [
               :system,
               :ssh,
               :git,
+              :tmux,
+              :tree,
+              :xsel,
+              :curl,
               :dotfiles,
               :editors,
               :ruby,
