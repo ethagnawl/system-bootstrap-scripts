@@ -5,7 +5,5 @@ TODO:
 Linux
 =====
 - redis
-- pbcopy/pbpaste
-- curl
-- symlink .gemrc
+- pbcopy/pbpase
 - postgres
