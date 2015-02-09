@@ -153,10 +153,10 @@ end
 
 task ruby: [:rvm, :gems]
 
-task :npm do
-  npm = "sudo apt-get install npm"
-  Utilities::log npm
-  Utilities::execute npm
+task :postgres do
+  postgres = "sudo apt-get install postgresql postgresql-server-dev-9.3"
+  Utilities::log postgres
+  Utilities::execute postgres
 end
 
 task :_node do
@@ -267,6 +267,7 @@ task linux: [
               :curl,
               :dotfiles,
               :editors,
+              :postgres,
               :ruby,
               :node,
               :java,
