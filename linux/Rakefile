@@ -83,6 +83,12 @@ task :xsel do
   Utilities::execute xsel
 end
 
+task :ack do
+  ack = "sudo apt-get install ack-grep"
+  Utilities::log ack
+  Utilities::execute ack
+end
+
 task :tmux do
   tmux = "sudo apt-get install tmux"
   Utilities::log tmux
@@ -254,6 +260,7 @@ task linux: [
               :system,
               :ssh,
               :git,
+              :ack,
               :tmux,
               :tree,
               :xsel,
