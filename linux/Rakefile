@@ -236,7 +236,7 @@ task :haskell do
 end
 
 task :keepassx do
-  keepassx = "sudo apt-get keepassx"
+  keepassx = "sudo apt-get install keepassx"
   Utilities::log keepassx
   Utilities::execute keepassx
 end
