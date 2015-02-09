@@ -5,6 +5,3 @@ TODO:
 Linux
 =====
 - redis
-- pbcopy/pbpase
-- postgres
-- ack-grep
