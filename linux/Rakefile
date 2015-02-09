@@ -183,8 +183,8 @@ end
 
 task :java_home do
   Utilities::log "set JAVA_HOME"
-  path = Utilities::backticks `which java`
-  Utilities::execute "echo JAVA_HOME=\"#{path}\" > /etc/environment"
+  path = Utilities::backticks("which java").chomp
+  Utilities::execute "echo JAVA_HOME=#{path} >> ~/.bashrc"
 end
 
 task java: [:jre, :jdk, :java_home]
