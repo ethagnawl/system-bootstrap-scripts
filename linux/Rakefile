@@ -223,6 +223,12 @@ task :dotfiles do
   Utilities::execute "cd ~ && ln -s ~/dotfiles/.pryrc ."
 end
 
+task :racket do
+  racket = "sudo apt-get install racket"
+  Utilities::log racket
+  Utilities::execute racket
+end
+
 task :haskell do
   haskell = "sudo apt-get install ghc6 ghc6-prof ghc6-doc libghc6-library-dev"
   Utilities::log haskell
@@ -274,6 +280,7 @@ task linux: [
               :node,
               :java,
               :clojure,
+              :racket,
               :applications
             ] do |t|
 
