@@ -77,10 +77,21 @@ task :curl do
   Utilities::execute curl
 end
 
+task :heroku do
+  Utilities::log "download and execute heroku toolbelt installer"
+  Utilities::execute "wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh"
+end
+
 task :xsel do
   xsel = "sudo apt-get install xsel"
   Utilities::log xsel
   Utilities::execute xsel
+end
+
+task :xchat do
+  xchat = "sudo apt-get install xchat"
+  Utilities::log xchat
+  Utilities::execute xchat
 end
 
 task :ack do
@@ -272,7 +283,9 @@ task linux: [
               :tmux,
               :tree,
               :xsel,
+              :xchat,
               :curl,
+              :heroku,
               :dotfiles,
               :editors,
               :postgres,
