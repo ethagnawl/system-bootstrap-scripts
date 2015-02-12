@@ -5,3 +5,5 @@ TODO:
 Linux
 =====
 - redis
+- global git config
+- vlc
