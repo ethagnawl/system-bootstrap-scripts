@@ -232,6 +232,9 @@ task :dotfiles do
 
   Utilities::log "symlink .pryrc"
   Utilities::execute "cd ~ && ln -s ~/dotfiles/.pryrc ."
+
+  Utilities::log "symlink .inputrc"
+  Utilities::execute "cd ~ && ln -s ~/dotfiles/.inputrc ."
 end
 
 task :racket do
