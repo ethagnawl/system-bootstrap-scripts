@@ -244,7 +244,7 @@ task :racket do
 end
 
 task :haskell do
-  haskell = "sudo apt-get install ghc6 ghc6-prof ghc6-doc libghc6-library-dev"
+  haskell = "sudo apt-get install ghc"
   Utilities::log haskell
   Utilities::execute haskell
 end
@@ -296,6 +296,7 @@ task linux: [
               :node,
               :java,
               :clojure,
+              :haskell,
               :racket,
               :applications
             ] do |t|
