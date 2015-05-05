@@ -235,6 +235,9 @@ task :dotfiles do
 
   Utilities::log "symlink .inputrc"
   Utilities::execute "cd ~ && ln -s ~/dotfiles/.inputrc ."
+
+  Utilities::log "symlink lubuntu-rc.xml"
+  Utilities::execute "ln -s ~/dotfiles/linux/lubuntu/lubuntu-rc.xml ~/.config/openbox/"
 end
 
 task :racket do
