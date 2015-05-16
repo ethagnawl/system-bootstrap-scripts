@@ -7,4 +7,3 @@ Linux
 - redis
 - global git config
 - vlc
-- boot
