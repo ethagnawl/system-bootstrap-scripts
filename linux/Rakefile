@@ -1,3 +1,5 @@
+require 'open-uri'
+
 module Utilities
   DRYRUN = ENV['DRYRUN'] || false
 
@@ -214,7 +216,22 @@ task :leinengen do
   Utilities::execute "bash /bin/lein"
 end
 
-task clojure: [:leinengen]
+task :boot do
+  url = "https://raw.githubusercontent.com/boot-clj/boot/master/version.properties"
+  content = open(url).read
+  version = content.split('version=').last.chomp
+
+  Utilities::log "download boot install script - version #{version}"
+  Utilities::execute "wget -O boot https://github.com/boot-clj/boot/releases/download/#{version}/boot.sh"
+
+  Utilities::log "chmod a+x boot"
+  Utilities::execute "chmod a+x boot"
+
+  Utilities::log "sudo mv boot /usr/local/bin"
+  Utilities::execute "sudo mv boot /usr/local/bin"
+end
+
+task clojure: [:leinengen, :boot]
 
 task :dotfiles do
   dotfiles_path = "https://github.com/ethagnawl/dotfiles"
