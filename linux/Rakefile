@@ -44,9 +44,19 @@ end
 task system: [:update, :upgrade]
 
 task :git do
+
   git = "sudo apt-get install git"
   Utilities::log git
   Utilities::execute git
+
+  git_config_email = 'git config --global user.email "pdoherty926@gmail.com"'
+  Utilities::log git_config_email
+  Utilities::execute git_config_email
+
+  git_config_username = 'git config --global user.name "Peter Doherty"'
+  Utilities::log git_config_username
+  Utilities::execute git_config_username
+
 end
 
 task :vundle do
