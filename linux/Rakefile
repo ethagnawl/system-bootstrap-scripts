@@ -291,6 +291,12 @@ task :dmenu do
   Utilities::execute dmenu
 end
 
+task :rlwrap do
+  rlwrap = "sudo apt-get install rlwrap"
+  Utilities::log rlwrap
+  Utilities::execute rlwrap
+end
+
 task :chrome do
   get_key = "wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -"
   Utilities::log get_key
@@ -312,7 +318,7 @@ task :dropbox do
   Utilities::execute 'cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86" | tar xzf - && ~/.dropbox-dist/dropboxd'
 end
 
-task applications: [:keepassx, :chrome, :dropbox, :dmenu]
+task applications: [:keepassx, :chrome, :dropbox, :dmenu, :rlwrap]
 
 task linux: [
               :system,
