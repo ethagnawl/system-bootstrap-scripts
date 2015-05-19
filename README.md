@@ -9,3 +9,4 @@ Linux
 - configure global gemsets
 - use apt to install dropbox and chrome
 - fix postgres task
+- use dynamic value for latest nvm

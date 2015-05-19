@@ -183,11 +183,16 @@ task :postgres do
 end
 
 task :nvm do
+  version = '0.23.3'
+
   Utilities::log "download and install nvm"
-  Utilities::execute "curl https://raw.githubusercontent.com/creationix/nvm/v0.23.3/install.sh | bash"
+  Utilities::execute "curl https://raw.githubusercontent.com/creationix/nvm/v#{version}/install.sh | bash"
 
   Utilities::log "install latest nvm"
-  Utilities::execute ". ~/.nvm/nvm.sh && nvm install v0.10.32"
+  Utilities::execute ". ~/.nvm/nvm.sh && nvm install v#{version}"
+
+  Utilities::log "append `nvm use #{version}` to .bashrc"
+  Utilities::execute "echo 'nvm use #{version}' >> ~/.bashrc"
 end
 
 task node: [:nvm]
