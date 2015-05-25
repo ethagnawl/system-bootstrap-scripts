@@ -299,6 +299,12 @@ task :dmenu do
   Utilities::execute dmenu
 end
 
+task :htop do
+  htop = "sudo apt-get install htop"
+  Utilities::log htop
+  Utilities::execute htop
+end
+
 task :rlwrap do
   rlwrap = "sudo apt-get install rlwrap"
   Utilities::log rlwrap
@@ -326,7 +332,7 @@ task :dropbox do
   Utilities::execute 'cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86" | tar xzf - && ~/.dropbox-dist/dropboxd'
 end
 
-task applications: [:keepassx, :chrome, :dropbox, :dmenu, :rlwrap]
+task applications: [:keepassx, :chrome, :dropbox, :dmenu, :rlwrap, :htop]
 
 task linux: [
               :system,
