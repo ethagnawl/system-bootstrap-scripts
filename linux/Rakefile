@@ -311,6 +311,12 @@ task :rlwrap do
   Utilities::execute rlwrap
 end
 
+task :gimp do
+  gimp = "sudo apt-get install gimp"
+  Utilities::log gimp
+  Utilities::execute gimp
+end
+
 task :chrome do
   get_key = "wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -"
   Utilities::log get_key
@@ -332,7 +338,7 @@ task :dropbox do
   Utilities::execute 'cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86" | tar xzf - && ~/.dropbox-dist/dropboxd'
 end
 
-task applications: [:keepassx, :chrome, :dropbox, :dmenu, :rlwrap, :htop]
+task applications: [:keepassx, :chrome, :dropbox, :dmenu, :rlwrap, :htop, :gimp]
 
 task linux: [
               :system,
