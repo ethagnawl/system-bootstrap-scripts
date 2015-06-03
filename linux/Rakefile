@@ -334,8 +334,9 @@ task :chrome do
 end
 
 task :dropbox do
-  Utilities::log "download and install dropbox"
-  Utilities::execute 'cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86" | tar xzf - && ~/.dropbox-dist/dropboxd'
+  dropbox = "sudo apt-get install nautilus-dropbox"
+  Utilities::log dropbox
+  Utilities::execute dropbox
 end
 
 task applications: [:keepassx, :chrome, :dropbox, :dmenu, :rlwrap, :htop, :gimp]
