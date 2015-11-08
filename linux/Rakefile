@@ -342,7 +342,19 @@ task :dropbox do
   Utilities::execute dropbox
 end
 
-task applications: [:keepassx, :chrome, :dropbox, :dmenu, :rlwrap, :htop, :gimp]
+task :torbrowser_launcher do
+  add_torbrowser_launcher_ppa = "sudo add-apt-repository ppa:micahflee/ppa"
+  Utilities::log add_torbrowser_launcher_ppa
+  Utilities::execute add_torbrowser_launcher_ppa
+
+  Rake::Task["update"].execute
+
+  install_torbrowser_launcher = "sudo apt-get install torbrowser-launcher"
+  Utilities::log install_torbrowser_launcher
+  Utilities::execute install_torbrowser_launcher
+end
+
+task applications: [:keepassx, :chrome, :dropbox, :dmenu, :rlwrap, :htop, :gimp, :torbrowser_launcher]
 
 task linux: [
               :system,
