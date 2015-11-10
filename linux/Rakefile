@@ -222,13 +222,13 @@ task :leinengen do
   Utilities::execute "wget -O lein https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein"
 
   Utilities::log "move lein into path"
-  Utilities::execute "sudo mv lein /bin"
+  Utilities::execute "mv lein ~/bin"
 
   Utilities::log "make lein executable"
-  Utilities::execute "sudo chmod 755 /bin/lein"
+  Utilities::execute "chmod 755 ~/bin/lein"
 
   Utilities::log "install lein"
-  Utilities::execute "bash /bin/lein"
+  Utilities::execute "bash ~/bin/lein"
 end
 
 task :boot do
