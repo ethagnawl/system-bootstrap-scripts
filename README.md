@@ -11,3 +11,4 @@ Linux
 - fix postgres task
 - use dynamic value for latest nvm
 - open vim without .vimrc when installing plugins
+- [Stack](https://hackage.haskell.org/package/stack)
