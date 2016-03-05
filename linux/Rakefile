@@ -183,16 +183,17 @@ task :postgres do
 end
 
 task :nvm do
-  version = '0.12.3'
+  version = 'stable'
 
   Utilities::log "download and install nvm"
-  Utilities::execute "curl https://raw.githubusercontent.com/creationix/nvm/v#{version}/install.sh | bash"
+  Utilities::execute "curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash"
 
   Utilities::log "install latest nvm"
-  Utilities::execute ". ~/.nvm/nvm.sh && nvm install v#{version}"
+  Utilities::execute ". ~/.nvm/nvm.sh && nvm install #{version}"
 
-  Utilities::log "append `nvm use #{version}` to .bashrc"
-  Utilities::execute "echo 'nvm use #{version}' >> ~/.bashrc"
+  # use_stable_as_default = 'nvm alias default stable'
+  # Utilities::log "append `#{use_stable_as_default}` to .bashrc"
+  # Utilities::execute "echo '#{use_stable_as_default}' >> ~/.bashrc"
 end
 
 task node: [:nvm]
@@ -267,6 +268,9 @@ task :dotfiles do
 
   Utilities::log "symlink .inputrc"
   Utilities::execute "cd ~ && ln -s ~/dotfiles/.inputrc ."
+
+  Utilities::log "symlink .nvmrc"
+  Utilities::execute "cd ~ && ln -s ~/dotfiles/.nvmrc ."
 
   Utilities::log "symlink ssh config"
   Utilities::execute "cd ~ && ln -s ~/dotfiles/.ssh-config ~/.ssh/config"
