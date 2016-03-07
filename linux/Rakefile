@@ -177,7 +177,7 @@ end
 task ruby: [:rvm, :gems]
 
 task :postgres do
-  postgres = "sudo apt-get install postgresql postgresql-server-dev-9.3"
+  postgres = "sudo apt-get install postgresql postgresql-server-dev-all"
   Utilities::log postgres
   Utilities::execute postgres
 end
