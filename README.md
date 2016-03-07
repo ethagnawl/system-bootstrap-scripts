@@ -4,6 +4,7 @@ TODO:
 
 Linux
 =====
+- phantomjs
 - redis
 - vlc
 - configure global gemsets
