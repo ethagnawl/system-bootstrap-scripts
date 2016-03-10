@@ -15,4 +15,3 @@ Linux
 - open vim without .vimrc when installing plugins
 - [Stack](https://hackage.haskell.org/package/stack)
 - boot install script is 404-ing
-- docker

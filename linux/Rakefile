@@ -358,6 +358,12 @@ task :torbrowser_launcher do
   Utilities::execute install_torbrowser_launcher
 end
 
+task :docker do
+  docker = "curl -fsSL https://get.docker.com/ | sh"
+  Utilities::log "install docker via `#{docker}`"
+  Utilities::execute docker
+end
+
 task applications: [:keepassx, :chrome, :dropbox, :dmenu, :rlwrap, :htop, :gimp, :torbrowser_launcher]
 
 task linux: [
@@ -380,6 +386,7 @@ task linux: [
               :clojure,
               :haskell,
               :racket,
+              :docker,
               :applications
             ] do |t|
 
