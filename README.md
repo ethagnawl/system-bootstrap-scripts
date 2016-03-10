@@ -14,3 +14,4 @@ Linux
 - Configure Gnome Terminal theme: https://github.com/anuragsoni/seoul256-gnome-terminal/blob/master/seoul256-dark.sh
 - open vim without .vimrc when installing plugins
 - [Stack](https://hackage.haskell.org/package/stack)
+- boot install script is 404-ing
