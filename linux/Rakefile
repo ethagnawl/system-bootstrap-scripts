@@ -76,7 +76,7 @@ task :pathogen do
 end
 
 task :_vim do
-  vim = "sudo apt-get install vim"
+  vim = "sudo apt-get install vim-gtk"
   Utilities::log vim
   Utilities::execute vim
 end
