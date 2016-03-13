@@ -35,6 +35,12 @@ task :update do
   Utilities::execute update
 end
 
+task :software_properties_common do
+  software_properties_common = "software_properties_common"
+  Utilities::log software_properties_common
+  Utilities::execute software_properties_common
+end
+
 task :ssh do
   keygen = "ssh-keygen -t rsa"
   Utilities::log keygen
@@ -368,6 +374,7 @@ task applications: [:keepassx, :chrome, :dropbox, :dmenu, :rlwrap, :htop, :gimp,
 
 task linux: [
               :system,
+              :software_properties_common,
               :ssh,
               :git,
               :ack,
