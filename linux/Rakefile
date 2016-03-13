@@ -131,13 +131,7 @@ task :tree do
 end
 
 task :sublime_text do
-  add_ppa = "sudo add-apt-repository ppa:webupd8team/sublime-text-3"
-  Utilities::log add_ppa
-  Utilities::execute add_ppa
-
-  Rake::Task["update"].execute
-
-  install = "sudo apt-get install sublime-text-installer"
+  install = "sudo apt-get install sublime-text"
   Utilities::log install
   Utilities::execute install
 end
