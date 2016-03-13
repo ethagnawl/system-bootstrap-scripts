@@ -182,6 +182,14 @@ task :postgres do
   Utilities::execute postgres
 end
 
+task :elm do
+  elm = "npm install -g elm"
+  Utilities::log elm
+  Utilities::execute elm
+end
+
+task npms: [:elm]
+
 task :nvm do
   version = 'stable'
 
@@ -196,7 +204,7 @@ task :nvm do
   # Utilities::execute "echo '#{use_stable_as_default}' >> ~/.bashrc"
 end
 
-task node: [:nvm]
+task node: [:nvm, :npms]
 
 task :jre do
   jre = "sudo apt-get install default-jre"
