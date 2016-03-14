@@ -138,32 +138,6 @@ end
 
 task editors: [:vim, :sublime_text]
 
-task :bundler do
-  bundler = "cd ~ && gem install bundler"
-  Utilities::log bundler
-  Utilities::execute bundler
-end
-
-task :rails do
-  rails = "cd ~ && gem install rails"
-  Utilities::log rails
-  Utilities::execute rails
-end
-
-task :pry do
-  pry = "cd ~ && gem install pry"
-  Utilities::log pry
-  Utilities::execute pry
-end
-
-task :tmuxinator do
-  tmuxinator = "cd ~ && gem install tmuxinator"
-  Utilities::log tmuxinator
-  Utilities::execute tmuxinator
-end
-
-task gems: [:bundler, :rails, :pry, :tmuxinator]
-
 task :rvm do
   add_keys = "gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3"
   Utilities::log add_keys
@@ -174,7 +148,7 @@ task :rvm do
   Utilities::execute download_install_script
 end
 
-task ruby: [:rvm, :gems]
+task ruby: [:rvm]
 
 task :postgres do
   postgres = "sudo apt-get install postgresql postgresql-server-dev-all"
@@ -261,6 +235,9 @@ task :dotfiles do
   dotfiles_path = "https://github.com/ethagnawl/dotfiles"
   Utilities::log "clone dotfiles"
   Utilities::execute "cd ~ && git clone #{dotfiles_path}"
+
+  Utilities::log "symlink default.gems"
+  Utilities::execute "cd ~/.rvm/gemsets && ln -s ~/dotfiles/default.gems ."
 
   Utilities::log "symlink .vimrc"
   Utilities::execute "cd ~ && ln -s ~/dotfiles/.vimrc ."
@@ -386,10 +363,10 @@ task linux: [
               :xchat,
               :curl,
               :heroku,
+              :ruby,
               :dotfiles,
               :editors,
               :postgres,
-              :ruby,
               :node,
               :java,
               :clojure,
