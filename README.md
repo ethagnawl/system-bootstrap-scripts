@@ -15,3 +15,4 @@ Linux
 - [Stack](https://hackage.haskell.org/package/stack)
 - boot install script is 404-ing
 - add yes prefix to necessary tasks
+- update git.configs to use pdoherty@protonmail.com
