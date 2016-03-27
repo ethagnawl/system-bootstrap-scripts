@@ -349,7 +349,23 @@ task :docker do
   Utilities::execute docker
 end
 
-task applications: [:keepassx, :chrome, :dropbox, :dmenu, :rlwrap, :htop, :gimp, :torbrowser_launcher]
+task :typespeed do
+  typespeed = 'sudo apt-get install typespeed'
+  Utilities::log typespeed
+  Utilities::execute typespeed
+end
+
+task applications: [
+  :keepassx,
+  :chrome,
+  :dropbox,
+  :dmenu,
+  :rlwrap,
+  :htop,
+  :gimp,
+  :torbrowser_launcher,
+  :typespeed
+]
 
 task linux: [
               :system,
