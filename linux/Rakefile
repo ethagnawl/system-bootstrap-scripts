@@ -273,11 +273,22 @@ task :racket do
   Utilities::execute racket
 end
 
-task :haskell do
+task :stack do
+  stack = "curl -sSL https://get.haskellstack.org/ | sh"
+  Utilities::log stack
+  Utilities::execute stack
+end
+
+task :ghc do
   haskell = "sudo apt-get install ghc"
   Utilities::log haskell
   Utilities::execute haskell
 end
+
+task haskell: [
+  :ghc,
+  :stack
+]
 
 task :keepassx do
   keepassx = "sudo apt-get install keepassx"
