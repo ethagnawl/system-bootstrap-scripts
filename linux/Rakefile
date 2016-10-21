@@ -263,6 +263,9 @@ task :dotfiles do
   Utilities::log "symlink lubuntu-rc.xml"
   Utilities::execute "ln -s ~/dotfiles/linux/lubuntu/lubuntu-rc.xml ~/.config/openbox/"
 
+  Utilities::log "copy .editorconfig"
+  Utilities::execute "cd ~ && cp .editorconfig ~/.editorconfig"
+
   Utilities::log "append `source ~/dotfiles/bashrc` to .bashrc"
   Utilities::execute "echo 'source ~/dotfiles/bashrc' >> ~/.bashrc"
 end
