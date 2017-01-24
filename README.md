@@ -18,3 +18,4 @@ Linux
 - update git.configs to use pdoherty@protonmail.com
 - add thinkpad brightness key fix - http://www.pclinuxos.com/forum/index.php?topic=127998.0
 - install [TPM](https://github.com/tmux-plugins/tpm) and plugins
+- use ~/.config/openbox/lxde-rc.xml for lubuntu keybindings path
