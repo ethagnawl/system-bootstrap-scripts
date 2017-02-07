@@ -118,11 +118,19 @@ task :ack do
   Utilities::execute ack
 end
 
-task :tmux do
+task :_tmux do
   tmux = "sudo apt-get install tmux"
   Utilities::log tmux
   Utilities::execute tmux
 end
+
+task :tmux_plugins do
+  tmux_plugins = "git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm"
+  Utilities::log tmux_plugins
+  Utilities::execute tmux_plugins
+end
+
+task tmux: [:_tmux, :tmux_plugins]
 
 task :tree do
   tree = "sudo apt-get install tree"
