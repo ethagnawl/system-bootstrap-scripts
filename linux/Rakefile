@@ -3,7 +3,7 @@ require 'open-uri'
 module Utilities
   DRYRUN = ENV['DRYRUN'] || false
 
-  LINEBREAK = '---------------------------------------------------------------------------------'
+  LINEBREAK = (0..80).inject('') { |memo, member| memo + '-' }
 
   def self.dryrun?
     Utilities::DRYRUN
