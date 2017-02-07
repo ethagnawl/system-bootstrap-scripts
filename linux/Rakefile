@@ -144,7 +144,13 @@ task :sublime_text do
   Utilities::execute install
 end
 
-task editors: [:vim, :sublime_text]
+task :editorconfig do
+  install = "sudo apt-get install editorconfig"
+  Utilities::log install
+  Utilities::execute install
+end
+
+task editors: [:vim, :sublime_text, :editorconfig]
 
 task :rvm do
   add_keys = "gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3"
