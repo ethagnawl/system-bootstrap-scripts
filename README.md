@@ -17,7 +17,6 @@ Linux
 - add yes prefix to necessary tasks
 - update git.configs to use pdoherty@protonmail.com
 - add thinkpad brightness key fix - http://www.pclinuxos.com/forum/index.php?topic=127998.0
-- script tmux plugin installation
 - use ~/.config/openbox/lxde-rc.xml for lubuntu keybindings path
 - download and configure shell completions (tmuxinator, [docker](https://github.com/docker/docker/blob/master/contrib/completion/bash/docker), etc.)
 - gcc/gdb

@@ -125,9 +125,13 @@ task :_tmux do
 end
 
 task :tmux_plugins do
-  tmux_plugins = "git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm"
-  Utilities::log tmux_plugins
-  Utilities::execute tmux_plugins
+  install_tpm = "git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm"
+  Utilities::log install_tpm
+  Utilities::execute install_tpm
+
+  install_plugins = "tmux run-shell ~/.tmux/plugins/tpm/bindings/install_plugins && tmux send-keys C-m"
+  Utilities::log install_plugins
+  Utilities::execute install_plugins
 end
 
 task tmux: [:_tmux, :tmux_plugins]
