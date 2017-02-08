@@ -311,6 +311,20 @@ task haskell: [
   :stack
 ]
 
+task :gcc do
+  gcc = "sudo apt-get install gcc"
+  Utilities::log gcc
+  Utilities::execute gcc
+end
+
+task :gdb do
+  gdb = "sudo apt-get install gdb"
+  Utilities::log gdb
+  Utilities::execute gdb
+end
+
+task c: [:gcc, :gdb]
+
 task :keepassx do
   keepassx = "sudo apt-get install keepassx"
   Utilities::log keepassx
@@ -415,6 +429,7 @@ task linux: [
               :dotfiles,
               :editors,
               :postgres,
+              :c,
               :node,
               :java,
               :clojure,

@@ -19,5 +19,4 @@ Linux
 - add thinkpad brightness key fix - http://www.pclinuxos.com/forum/index.php?topic=127998.0
 - use ~/.config/openbox/lxde-rc.xml for lubuntu keybindings path
 - download and configure shell completions (tmuxinator, [docker](https://github.com/docker/docker/blob/master/contrib/completion/bash/docker), etc.)
-- gcc/gdb
 - [configure update-alternatives to use firefox for default web browsers](http://forgottheaddress.blogspot.com/2012/04/set-firefox-as-default-browser-using.html)
