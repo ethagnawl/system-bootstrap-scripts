@@ -20,3 +20,5 @@ Linux
 - use ~/.config/openbox/lxde-rc.xml for lubuntu keybindings path
 - download and configure shell completions (tmuxinator, [docker](https://github.com/docker/docker/blob/master/contrib/completion/bash/docker), etc.)
 - [configure update-alternatives to use firefox for default web browsers](http://forgottheaddress.blogspot.com/2012/04/set-firefox-as-default-browser-using.html)
+- alphabetize/sensibly group tasks
+- add descriptions to tasks
