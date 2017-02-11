@@ -15,7 +15,6 @@ Linux
 - [Stack](https://hackage.haskell.org/package/stack)
 - boot install script is 404-ing
 - add yes prefix to necessary tasks
-- update git.configs to use pdoherty@protonmail.com
 - add thinkpad brightness key fix - http://www.pclinuxos.com/forum/index.php?topic=127998.0
 - use ~/.config/openbox/lxde-rc.xml for lubuntu keybindings path
 - download and configure shell completions (tmuxinator, [docker](https://github.com/docker/docker/blob/master/contrib/completion/bash/docker), etc.)
