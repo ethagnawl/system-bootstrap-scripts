@@ -22,3 +22,4 @@ Linux
 - set vim as default text editor ($EDITOR and [update-alternatives](https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source))
 - alphabetize/sensibly group tasks
 - add descriptions to tasks
+- android studio
