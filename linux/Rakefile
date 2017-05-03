@@ -442,6 +442,16 @@ task applications: [
   :typespeed
 ]
 
+task :chkrootkit do
+  chkrootkit = 'sudo apt-get install chkrootkit'
+  Utilities::log chkrootkit
+  Utilities::execute chkrootkit
+end
+
+task security: [
+  :chkrootkit
+]
+
 task linux: [
               :system,
               :software_properties_common,
@@ -466,7 +476,8 @@ task linux: [
               :haskell,
               :racket,
               :docker,
-              :applications
+              :applications,
+              :security
             ] do |t|
 
 end
