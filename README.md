@@ -23,3 +23,6 @@ Linux
 - alphabetize/sensibly group tasks
 - add descriptions to tasks
 - android studio
+- stack install ghc-mod
+- stack install ghci
+- stack install shelly
