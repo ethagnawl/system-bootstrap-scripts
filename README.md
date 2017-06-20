@@ -27,3 +27,4 @@ Linux
 - stack install ghc-mod
 - stack install ghci
 - stack install shelly
+- introduce .irbrc
