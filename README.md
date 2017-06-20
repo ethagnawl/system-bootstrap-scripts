@@ -17,6 +17,7 @@ Linux
 - boot install script is 404-ing
 - add yes prefix to necessary tasks
 - add thinkpad brightness key fix - http://www.pclinuxos.com/forum/index.php?topic=127998.0
+- introduce xorg.conf (now required for brightness key fix)
 - use ~/.config/openbox/lxde-rc.xml for lubuntu keybindings path
 - download and configure shell completions (tmuxinator, [docker](https://github.com/docker/docker/blob/master/contrib/completion/bash/docker), etc.)
 - [configure update-alternatives to use firefox for default web browsers](http://forgottheaddress.blogspot.com/2012/04/set-firefox-as-default-browser-using.html)
