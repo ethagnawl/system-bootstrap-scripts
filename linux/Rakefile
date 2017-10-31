@@ -316,6 +316,15 @@ task :dotfiles do
   Utilities::log "symlink lubuntu-rc.xml"
   Utilities::execute "ln -s ~/dotfiles/linux/lubuntu/lubuntu-rc.xml ~/.config/openbox/"
 
+  Utilities::log "symlink firefox.desktop"
+  Utilities::execute "ln -s ~/dotfiles/linux/LXDE/firefox.desktop ~/.config/autostart/"
+
+  Utilities::log "symlink terminal.desktop"
+  Utilities::execute "ln -s ~/dotfiles/linux/LXDE/terminal.desktop ~/.config/autostart/"
+
+  Utilities::log "symlink touchpad.desktop"
+  Utilities::execute "ln -s ~/dotfiles/linux/LXDE/touchpad.desktop ~/.config/autostart/"
+
   Utilities::log "copy .editorconfig"
   Utilities::execute "cd ~ && cp .editorconfig ~/.editorconfig"
 
