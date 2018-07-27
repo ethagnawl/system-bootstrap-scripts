@@ -330,6 +330,12 @@ task :dotfiles do
 
   Utilities::log "append `source ~/dotfiles/bashrc` to .bashrc"
   Utilities::execute "echo 'source ~/dotfiles/bashrc' >> ~/.bashrc"
+
+  Utilities::log "copy battery.sh to ~"
+  Utilities::execute "cd ~ && cp scripts/battery.sh ~/battery.sh"
+
+  Utilities::log "copy screenshot.sh to /usr/local/bin"
+  Utilities::execute "cp scripts/screenshot.sh /usr/local/bin/screenshot.sh"
 end
 
 task :racket do
