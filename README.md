@@ -30,3 +30,4 @@ Linux
 - stack install ghci
 - stack install shelly
 - introduce .irbrc
+- vim-gui-common  -- for easy clipboard access
