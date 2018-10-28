@@ -33,3 +33,4 @@ Linux
 - vim-gui-common  -- for easy clipboard access
 - dirmngr
 - pyenv
+- slock
