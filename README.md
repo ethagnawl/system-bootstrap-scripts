@@ -32,3 +32,4 @@ Linux
 - introduce .irbrc
 - vim-gui-common  -- for easy clipboard access
 - dirmngr
+- pyenv
