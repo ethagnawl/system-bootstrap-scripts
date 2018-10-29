@@ -34,3 +34,4 @@ Linux
 - dirmngr
 - pyenv
 - slock
+- ubuntu fonts
