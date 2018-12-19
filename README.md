@@ -35,3 +35,4 @@ Linux
 - pyenv
 - slock
 - ubuntu fonts
+- libnotify-bin
