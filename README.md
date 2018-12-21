@@ -36,3 +36,4 @@ Linux
 - slock
 - ubuntu fonts
 - libnotify-bin
+- ranger
