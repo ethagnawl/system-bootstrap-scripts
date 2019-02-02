@@ -37,3 +37,4 @@ Linux
 - ubuntu fonts
 - libnotify-bin
 - ranger
+- nmap
