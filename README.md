@@ -38,3 +38,4 @@ Linux
 - libnotify-bin
 - ranger
 - nmap
+- use debian stack package
