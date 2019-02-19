@@ -29,3 +29,7 @@ Linux
 - stack install ghci
 - stack install shelly
 - introduce .irbrc
+- add macchanger entry
+- add astyle entry
+- fastboot && adb
+- link scripts to directory on path
