@@ -203,6 +203,12 @@ task :redis do
   Utilities::execute start_redis_on_boot
 end
 
+task :dateutils do
+  dateutils = "sudo apt-get install dateutils"
+  Utilities::log dateutils
+  Utilities::execute dateutils
+end
+
 task :postgres do
   postgres = "sudo apt-get install postgresql postgresql-server-dev-all"
   Utilities::log postgres
@@ -451,6 +457,25 @@ task :typespeed do
   Utilities::execute typespeed
 end
 
+task :flameshot do
+  # backports?
+  flameshot = 'sudo apt-get install flameshot'
+  Utilities::log flameshot
+  Utilities::execute flameshot
+end
+
+task :bleachbit do
+  bleachbit = 'sudo apt-get install bleachbit'
+  Utilities::log bleachbit
+  Utilities::execute bleachbit
+end
+
+task :inxi do
+  inxi = 'sudo apt-get install inxi'
+  Utilities::log inxi
+  Utilities::execute inxi
+end
+
 task applications: [
   :keepassx,
   :chrome,
@@ -460,7 +485,10 @@ task applications: [
   :htop,
   :gimp,
   :torbrowser_launcher,
-  :typespeed
+  :typespeed,
+  :flameshot,
+  :bleachbit,
+  :inxi
 ]
 
 task :chkrootkit do
@@ -499,7 +527,8 @@ task linux: [
               :racket,
               :docker,
               :applications,
-              :security
+              :security,
+              :dateutils
             ] do |t|
 
 end
