@@ -5,6 +5,7 @@ TODO:
 Linux
 =====
 - make Rakefile ruby backwards compatible with 1.9.3 (Ubuntu default)
+- nmap
 - phantomjs
 - vlc
 - configure global gemsets
@@ -33,3 +34,12 @@ Linux
 - add astyle entry
 - fastboot && adb
 - link scripts to directory on path
+- vim-gui-common  -- for easy clipboard access
+- dirmngr
+- pyenv
+- slock
+- ubuntu fonts
+- libnotify-bin
+- ranger
+- nmap
+- use debian stack package
