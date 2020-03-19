@@ -42,4 +42,5 @@ Linux
 - libnotify-bin
 - ranger
 - nmap
+- higan
 - use debian stack package
