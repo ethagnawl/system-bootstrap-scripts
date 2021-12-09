@@ -43,4 +43,5 @@ Linux
 - ranger
 - nmap
 - higan
+- gparted
 - use debian stack package
