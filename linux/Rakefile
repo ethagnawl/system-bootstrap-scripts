@@ -381,14 +381,14 @@ end
 
 task c: [:gcc, :gdb]
 
-task :keepassx do
-  keepassx = "sudo apt-get install keepassx"
-  Utilities::log keepassx
-  Utilities::execute keepassx
+task :keepassxc do
+  keepassxc = "sudo apt-get install keepassxc"
+  Utilities::log keepassxc
+  Utilities::execute keepassxc
 end
 
 task :dmenu do
-  keepassx = "sudo apt-get install dmenu"
+  dmenu = "sudo apt-get install dmenu"
   Utilities::log dmenu
   Utilities::execute dmenu
 end
@@ -477,7 +477,7 @@ task :inxi do
 end
 
 task applications: [
-  :keepassx,
+  :keepassxc,
   :chrome,
   :dropbox,
   :dmenu,
