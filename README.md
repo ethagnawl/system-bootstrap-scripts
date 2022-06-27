@@ -4,6 +4,7 @@ TODO:
 
 Linux
 =====
+- needrestart
 - make Rakefile ruby backwards compatible with 1.9.3 (Ubuntu default)
 - nmap
 - phantomjs
